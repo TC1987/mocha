@@ -24,10 +24,15 @@ module.exports = (function() {
 
             https.request(options, function(response) {
                 response.on('data', function(data) {
+                    console.log('I run first.');
+                    // This method gets called multiple times depending on the size of
+                    // the data getting returned back from the API.
+                    // console.log('data: ' + data);
                     str += data;
                 })
 
                 response.on('end', function() {
+                    console.log('I run second.');
                     callback(JSON.parse(str));
                 })
 

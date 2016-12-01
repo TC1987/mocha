@@ -29,7 +29,7 @@ describe('Sanitize', function() {
 
     // Spec / Test. These are what you're actually testing for.
 
-    // Using '.only' tests only that specific spec. All other specs are ignored.
+    // Using '.only' tests only that specific spec. All other specs in every 'describe' block are ignored.
     // Using '.skip' skips only that specific spec. All other specs are run.
     it('returns the lowercase version of a string', function() {
         var inputWord = 'HELLO WORLD',
@@ -71,7 +71,9 @@ describe('Tokenize', function() {
 describe('Github info', function() {
     it.only('returns repo info from github', function(done) {
         word.info(function(reply) {
-            console.log(reply);
+            // console.log(reply);
+            expect(reply.name).to.equal('build-podcast');
+            expect(reply.language).to.equal('HTML');
             done();
         })
     })
